@@ -1,0 +1,62 @@
+body {
+    background-image: url("/images/backg.png");
+    background-size: 100%;
+}
+
+nav.pr {
+     background: rgba(54, 49, 49, 0.719); /* Цвет фона */
+     padding: 5px; /* Поля вокруг текста */
+}
+  
+div.pr {
+    background: rgba(54, 49, 49, 0.719);
+    padding: 5px;
+    border-radius: 5%;
+}
+
+a {
+    font-family: 'Times New Roman', Times, serif;
+}
+  
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Times New Roman', Times, serif;
+    color: aliceblue;
+}
+
+table,tr,td,th {
+    background-color: rgba(54, 49, 49, 0.719);
+    font-family: 'Times New Roman', Times, serif;
+    color: aliceblue;
+}
+  
+p {
+    text-align: center;
+    color: aliceblue;
+}
+
+select {
+    background-color: #44424279;
+    color: aliceblue;
+    text-align: center;
+    width: 95px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+caption {
+    text-align: center;
+}
+  
+  
+/*
+a.pap {
+    font-family: papyrus;
+  }
+
+  @font-face {
+    font-family: "papyrus"; 
+    src: url("/fonts/1papyrus.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } --Добавление своего шрифта-- */
