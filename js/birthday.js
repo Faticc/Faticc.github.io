@@ -4,10 +4,10 @@ let people = [
     { name: "Амирова Эмиля", birthday: new Date("02/11/2009"), gender: "male" },
     { name: "Бабаева Бориса", birthday: new Date("09/29/2008"), gender: "male" },
     { name: "Бадалян Шушанну", birthday: new Date("05/21/2008"), gender: "female" },
-    { name: "Гаврилова Виктора", birthday: new Date("MM/dd/2006"), gender: "female" },
+    { name: "Гаврилова Виктора", birthday: new Date("MM/dd/2006"), gender: "male" },
     { name: "Голик Алёну", birthday: new Date("03/08/2008"), gender: "female" },
-    { name: "Голикова Тимура", birthday: new Date("05/dd/2008"), gender: "female" },
-    { name: "Голоева Милана", birthday: new Date("01/22/2008"), gender: "female" },
+    { name: "Голикова Тимура", birthday: new Date("05/dd/2008"), gender: "male" },
+    { name: "Голоева Милана", birthday: new Date("01/22/2008"), gender: "male" },
     { name: "Горбенко Викторию", birthday: new Date("05/11/2009"), gender: "female" },
     { name: "Гурову Полину", birthday: new Date("02/03/2008"), gender: "female" },
     { name: "Джалалова Барыша", birthday: new Date("07/23/2008"), gender: "male" },
@@ -25,49 +25,40 @@ let people = [
     { name: "Чехизе Малак", birthday: new Date("01/30/2009"), gender: "female" },
     { name: "Шарлай Алёну", birthday: new Date("09/27/2008"), gender: "female" }
   ];
-  window.onload = function greetOnBirthday() {
+
+  window.onload = () => {
     const today = new Date();
-  
-    // Перебираем массив людей и проверяем, кто из них имеет сегодня день рождения
-    const personToday = people.find(
-      (person) =>
-        today.getMonth() === person.birthday.getMonth() &&
-        today.getDate() === person.birthday.getDate()
-    );
-  
-    people.forEach(person => {
-      let pronoun;
-      if (person.gender === 'male') {
-        pronoun = 'он';
-      } else if (person.gender === 'female') {
-        pronoun = 'она';
-      }
-    });
-
-    people.forEach(person => {
-      let zdr;
-      if (person.gender === 'male') {
-        zdr = 'здоровым';
-      } else if (person.gender === 'female') {
-        zdr = 'здоровой';
-      }
-    });
-
-    // Если есть человек из массива, у которого сегодня день рождения, вызываем модалку
-    if (personToday) {
+    const personToday = people.find(person => today.getMonth() === person.birthday.getMonth() && today.getDate() === person.birthday.getDate());
+    
+    if (personToday) { 
+      const gen = personToday.gender === 'female' ? 'она' : 'он';
+      const sch = personToday.gender === 'female' ? 'здоровой' : 'здоровым'; 
+      const uch = personToday.gender === 'female' ? 'ученицу' : 'ученика';
+      const ei = personToday.gender === 'female' ? 'Ей' : 'Ему';
+      const age = today.getFullYear() - personToday.birthday.getFullYear();
+      
       const nameElement = document.getElementById("name");
-      nameElement.innerHTML = `${personToday.name}`;
-      const genderElement = document.getElementById("gender");
-      genderElement.innerHTML = `${pronoun}`;
-      const zdrElement = document.getElementById("zdr");
-      zdrElement.innerHTML = `${zdr}`;
+      const genElement = document.getElementById("gen");
+      const schElement = document.getElementById("sch");
+      const uchElement = document.getElementById("uch");
+      const eiElement = document.getElementById("ei");
+      const ageElement = document.getElementById("age");
       const modalElement = document.getElementById("exampleModal");
+
+      nameElement.innerHTML = `${personToday.name}`;
+      genElement.innerHTML = `${gen}`;
+      schElement.innerHTML = `${sch}`;
+      uchElement.innerHTML = `${uch}`;
+      eiElement.innerHTML = `${ei}`;
+      ageElement.innerHTML = `${age}`;
       const modal = new bootstrap.Modal(modalElement);
       modal.show();
     } else {
-      console.log("Нет имени для поздравления");
+      console.log("Сегодня никто не празднует день рождения.");
     }
+
   };
+
  document.write('\
  <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">\
  <div class="modal-dialog">\
@@ -77,10 +68,11 @@ let people = [
        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>\
      </div>\
        <div class="modal-body">\
-         Поздравляем ученика 8В класса <span id="name"></span> 🎂<br>\
-         с днём рождения Надеемся, <span id="gender"></span> будет <span id="zdr"></span>!🥳<br>\
+         Поздравляем <span id="uch"></span> 8В класса <span id="name"></span> 🎂<br>\
+         с днём рождения Надеемся, <span id="gen"></span> будет <span id="sch"></span>!🥳<br>\
          И проведёт этот день весело и съест много вкусностей.✨<br>\
          Пожалуйста, продолжайте быть счастливыми!✨<br>\
+         <span id="ei"></span> исполняется <span id="age"></span> лет. \
        </div>\
      <div class="modal-footer">\
        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Закрыть</button>\
