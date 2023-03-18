@@ -9,6 +9,13 @@
     <link href="/css/style.css" rel="stylesheet">
   </head>
   <body>
+<script type="module">
+  needimport { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
+  firebaseConfig = {: "AIzaSyDd31KkqKqk9YT4pD9TsxUozvHLvQn5-6s",: "auth-b4e06.firebaseapp.com",: "auth-b4e06",: "auth-b4e06.appspot.com",: "1037284604456",: "1:1037284604456:web:3b4d6eb5c543711a2bd31d",: "G-YF8ZYYZELL"};
+  Firebaseconst app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+    </script>
     <script id="menu" src="/js/menu.js"></script>
     <script src="/js/birthday.js"></script>
     <div class="p-4"></div>
