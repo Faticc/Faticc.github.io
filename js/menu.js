@@ -24,6 +24,9 @@ document.write('\
       <li>\
       <a class="nav-link" aria-current="page" href="/html/about.html">About</a>\
       </li>\
+      <li>\
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>\
+      </li>\
       </ul>\
     </div>\
   </div>\
