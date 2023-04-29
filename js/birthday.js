@@ -13,7 +13,7 @@ let people = [
     { name: "Джалалова Барыша", birthday: new Date("07/23/2008"), gender: "male" },
     { name: "Джалалова Кадыра", birthday: new Date("09/24/2008"), gender: "male" },
     { name: "Исламову Айлин", birthday: new Date("07/19/2008"), gender: "female" },
-    { name: "Комеристого Александра", birthday: new Date("08/10/2008"), gender: "male" },
+    { name: "Комеристого Александра", birthday: new Date("07/10/2008"), gender: "male" },
     { name: "Кондратьева Александра", birthday: new Date("07/17/2008"), gender: "male" },
     { name: "Магомедова Артёма", birthday: new Date("05/19/2008"), gender: "male" },
     { name: "Мевлютову Залину", birthday: new Date("MM/dd/2008"), gender: "female" },
