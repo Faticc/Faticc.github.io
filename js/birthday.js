@@ -8,7 +8,7 @@ let people = [
     { name: "Голик Алёну", birthday: new Date("03/08/2008"), gender: "female" },
     { name: "Голикова Тимура", birthday: new Date("05/dd/2008"), gender: "male" },
     { name: "Голоева Милана", birthday: new Date("01/22/2008"), gender: "male" },
-    { name: "Горбенко Викторию", birthday: new Date("05/11/2009"), gender: "female" },
+    { name: "Горбенко Викторию", birthday: new Date("05/11/2008"), gender: "female" },
     { name: "Гурову Полину", birthday: new Date("02/03/2008"), gender: "female" },
     { name: "Джалалова Барыша", birthday: new Date("07/23/2008"), gender: "male" },
     { name: "Джалалова Кадыра", birthday: new Date("09/24/2008"), gender: "male" },
