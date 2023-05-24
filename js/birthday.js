@@ -28,14 +28,23 @@ let people = [
 
 window.onload = () => {
   const today = new Date();
-  const personToday = people.find(person => today.getMonth() === person.birthday.getMonth() && today.getDate() === person.birthday.getDate());
-  
-  if (personToday) { 
-    const gen = personToday.gender === 'female' ? 'она' : 'он';
-    const sch = personToday.gender === 'female' ? 'здоровой' : 'здоровым'; 
-    const uch = personToday.gender === 'female' ? 'ученицу' : 'ученика';
-    const ei = personToday.gender === 'female' ? 'Ей' : 'Ему';
-    const age = today.getFullYear() - personToday.birthday.getFullYear();
+  const sortedPeople = people
+    .map(person => {
+      const birthday = new Date(today.getFullYear(), person.birthday.getMonth(), person.birthday.getDate());
+      const diffTime = Math.abs(birthday - today);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      return { ...person, daysUntilBirthday: diffDays };
+    })
+    .sort((a, b) => a.daysUntilBirthday - b.daysUntilBirthday);
+
+  const nextBirthdayPerson = sortedPeople.find(person => person.daysUntilBirthday === 0) || sortedPeople[0];
+
+  if (nextBirthdayPerson.daysUntilBirthday === 0) {
+    const gen = nextBirthdayPerson.gender === 'female' ? 'она' : 'он';
+    const sch = nextBirthdayPerson.gender === 'female' ? 'здоровой' : 'здоровым'; 
+    const uch = nextBirthdayPerson.gender === 'female' ? 'ученицу' : 'ученика';
+    const ei = nextBirthdayPerson.gender === 'female' ? 'Ей' : 'Ему';
+    const age = today.getFullYear() - nextBirthdayPerson.birthday.getFullYear();
     
     const nameElement = document.getElementById("name");
     const genElement = document.getElementById("gen");
@@ -45,7 +54,7 @@ window.onload = () => {
     const ageElement = document.getElementById("age");
     const modalElement = document.getElementById("exampleModal");
 
-    nameElement.innerHTML = `${personToday.name}`;
+    nameElement.innerHTML = `${nextBirthdayPerson.name}`;
     genElement.innerHTML = `${gen}`;
     schElement.innerHTML = `${sch}`;
     uchElement.innerHTML = `${uch}`;
@@ -54,8 +63,11 @@ window.onload = () => {
     const modal = new bootstrap.Modal(modalElement);
     modal.show();
   } else {
-    console.log("Сегодня никто не празднует день рождения.");
+    const daysUntilNextBirthday = nextBirthdayPerson.daysUntilBirthday;
+    const nameElement = document.getElementById("name");
+    nameElement.innerHTML = `Ближайший день рождения через ${daysUntilNextBirthday} дней у ${nextBirthdayPerson.name}.`;
   }
+
 
 };
 
