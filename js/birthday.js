@@ -66,8 +66,6 @@ window.onload = () => {
     const daysUntilNextBirthday = nextBirthdayPerson.daysUntilBirthday;
     console.log(`Ближайший день рождения через ${daysUntilNextBirthday} дней у ${nextBirthdayPerson.name}.`);
   }
-
-
 };
 
 document.write('\
