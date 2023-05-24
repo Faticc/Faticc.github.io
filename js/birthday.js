@@ -64,8 +64,7 @@ window.onload = () => {
     modal.show();
   } else {
     const daysUntilNextBirthday = nextBirthdayPerson.daysUntilBirthday;
-    const formattedDays = new Date(daysUntilNextBirthday * 24 * 60 * 60 * 1000).toLocaleString('ru-RU', {day: 'numeric', month: 'long', year: 'numeric'});
-    console.log(`Ближайший день рождения ${nextBirthdayPerson.name} - ${formattedDays}.`);
+    console.log(`Мы поздравим ${nextBirthdayPerson.name} через ${daysUntilNextBirthday} дней.`);
   }
 };
 
