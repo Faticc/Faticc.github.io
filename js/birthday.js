@@ -26,17 +26,21 @@ let people = [
     { name: "Шарлай Алёну", birthday: new Date("09/27/2008"), gender: "female" }
   ];
 
-  window.onload = () => {
+  const fetchModal = async () => {
+    const response = await fetch('../html/modal.html');
+    const modalHtml = await response.text();
+    document.body.insertAdjacentHTML('beforeend', modalHtml);
+  
     const today = new Date();
     const personToday = people.find(person => today.getMonth() === person.birthday.getMonth() && today.getDate() === person.birthday.getDate());
-    
-    if (personToday) { 
+  
+    if (personToday) {
       const gen = personToday.gender === 'female' ? 'она' : 'он';
-      const sch = personToday.gender === 'female' ? 'здоровой' : 'здоровым'; 
+      const sch = personToday.gender === 'female' ? 'здоровой' : 'здоровым';
       const uch = personToday.gender === 'female' ? 'ученицу' : 'ученика';
       const ei = personToday.gender === 'female' ? 'Ей' : 'Ему';
       const age = today.getFullYear() - personToday.birthday.getFullYear();
-      
+  
       const nameElement = document.getElementById("name");
       const genElement = document.getElementById("gen");
       const schElement = document.getElementById("sch");
@@ -44,7 +48,7 @@ let people = [
       const eiElement = document.getElementById("ei");
       const ageElement = document.getElementById("age");
       const modalElement = document.getElementById("exampleModal");
-
+  
       nameElement.innerHTML = `${personToday.name}`;
       genElement.innerHTML = `${gen}`;
       schElement.innerHTML = `${sch}`;
@@ -56,28 +60,8 @@ let people = [
     } else {
       console.log("Сегодня никто не празднует день рождения.");
     }
-
   };
+  
+  fetchModal();
+  
 
- document.write('\
- <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">\
- <div class="modal-dialog">\
-   <div class="modal-content">\
-     <div class="modal-header">\
-       <h5 class="modal-title text-dark" id="exampleModalLabel">С днем рождения!</h5>\
-       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>\
-     </div>\
-       <div class="modal-body">\
-         Поздравляем <span id="uch"></span> 8В класса <span id="name"></span> 🎂<br>\
-         C днём рождения! Надеемся, <span id="gen"></span> будет <span id="sch"></span>!🥳<br>\
-         И проведёт этот день весело и съест много вкусностей.✨<br>\
-         Пожалуйста, продолжайте быть счастливыми!✨<br>\
-         <span id="ei"></span> исполняется <span id="age"></span> лет. \
-       </div>\
-     <div class="modal-footer">\
-       <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Закрыть</button>\
-     </div>\
-   </div>\
- </div>\
-</div>\
- ')
