@@ -27,11 +27,11 @@ let people = [
 ];
 
 window.onload = () => {
-  const today = new Date();
+  const today = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Moscow" }));
   const sortedPeople = people
     .map(person => {
-      const birthday = new Date(today.getFullYear(), person.birthday.getMonth(), person.birthday.getDate());
-      const diffTime = Math.abs(birthday - today);
+      const birthday = new Date(today.getFullYear(), person.birthday.getMonth(), person.birthday.getDate(), 0, 0, 0);
+      const diffTime = Math.abs(birthday.getTime() - today.getTime());
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       return { ...person, daysUntilBirthday: diffDays };
     })
