@@ -9,10 +9,7 @@ document.write('\
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">\
             <li class="nav-item">\
                 <a class="nav-link" aria-current="page" title="Ученики и Учителя" href="/html/members.html">Участники</a>\
-            </li>\
-            <li class="nav-item">\
-                <a class="nav-link" aria-current="page" title="Достижения и активности класса" href="/html/activity.html">Активности</a>\
-            </li>\
+            </li>\
             <li class="nav-item">\
                 <a class="nav-link" aria-current="page" title="Домашнее задание, изменения и ВПР" href="/html/studies.html">Учёба</a>\
             </li>\
