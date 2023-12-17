@@ -1,4 +1,4 @@
-document.write('
+document.write('\
 <nav class="navbar navbar-expand-lg navbar-dark bg-gradient fixed-top pr">\
     <div class="container-fluid">\
     <a class="navbar-brand" href="/index.html">Главная</a>\
